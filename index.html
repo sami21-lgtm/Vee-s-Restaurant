@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vee's Restaurant | Modern Dining</title>
     <link rel="stylesheet" href="style.css">
-    <!-- FontAwesome for Icons -->
+    <!-- FontAwesome for Premium Interface Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Header / Navbar -->
+    <!-- Header / Navbar Component -->
     <header>
         <nav class="navbar">
             <div class="logo">Vee's Restaurant</div>
@@ -25,7 +25,7 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Showcase Section -->
     <section id="home" class="hero-section">
         <div class="hero-content">
             <h1>Welcome to Vee's Restaurant</h1>
@@ -41,12 +41,14 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- Brand History & Ownership Grid -->
     <section id="about" class="about-section">
         <div class="about-container">
             <div class="about-text">
                 <h2>Our Story & History</h2>
                 <p>Every masterpiece has a visionary behind it. Vee's Restaurant was conceptualized and founded to bring world-class dining, premium ambiance, and unforgettable culinary art under one roof. Our secret recipes and modern innovations surprise and delight food enthusiasts every single day.</p>
+                
+                <!-- Owner Profile Component -->
                 <div class="owner-badge">
                     <i class="fas fa-crown"></i>
                     <div>
@@ -56,45 +58,158 @@
                 </div>
             </div>
             <div class="about-img">
-                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Restaurant Interior">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Vee's Restaurant Ambiance View">
             </div>
         </div>
     </section>
 
-    <!-- Menu Section -->
+    <!-- Multi-Cuisine Interactive Menu Section -->
     <section id="menu" class="menu-section">
         <div class="section-title">
             <h2>Our Signature Menu</h2>
             <p>Explore culinary art crafted with heritage and passion.</p>
         </div>
         
+        <!-- Category Controller Tabs -->
         <div class="menu-tabs">
-            <button class="tab-btn active" data-target="all">All</button>
+            <button class="tab-btn active" data-target="all">All Items</button>
             <button class="tab-btn" data-target="continental">Continental</button>
-            <button class="tab-btn" data-target="drinks">Drinks</button>
+            <button class="tab-btn" data-target="local">Local & Indian</button>
+            <button class="tab-btn" data-target="drinks">Dessert & Drinks</button>
         </div>
 
+        <!-- Food Item Grid Array (15 Interactive Modules) -->
         <div class="menu-grid">
+            
+            <!-- --- CONTINENTAL CUISINE --- -->
             <div class="menu-card" data-category="continental">
                 <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=400&q=80" alt="Ribeye Steak">
                 <div class="card-info">
-                    <h3>Ribeye Steak</h3>
-                    <p>Tender grilled steak with garlic butter sauce and mashed potatoes.</p>
-                    <span class="price">Tk 1,250</span>
+                    <h3>Premium Ribeye Steak</h3>
+                    <p>Tender grilled ribeye steak with garlic butter sauce and mashed potatoes.</p>
+                    <span class="price">Tk 1,450</span>
+                </div>
+            </div>
+            <div class="menu-card" data-category="continental">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80" alt="Four Cheese Pizza">
+                <div class="card-info">
+                    <h3>Four Cheese Pizza</h3>
+                    <p>12-inch artisanal crust loaded with Mozzarella, Parmesan, Cheddar, and Blue cheese.</p>
+                    <span class="price">Tk 950</span>
+                </div>
+            </div>
+            <div class="menu-card" data-category="continental">
+                <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=400&q=80" alt="Fettuccine Alfredo">
+                <div class="card-info">
+                    <h3>Fettuccine Alfredo</h3>
+                    <p>Rich, creamy white sauce pasta topped with seasoned grilled chicken breast.</p>
+                    <span class="price">Tk 720</span>
+                </div>
+            </div>
+            <div class="menu-card" data-category="continental">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80" alt="BBQ Beef Burger">
+                <div class="card-info">
+                    <h3>Smoked BBQ Beef Burger</h3>
+                    <p>Double beef patty, melted cheddar, crispy onion rings, and secret BBQ glaze.</p>
+                    <span class="price">Tk 580</span>
+                </div>
+            </div>
+            <div class="menu-card" data-category="continental">
+                <img src="https://images.unsplash.com/photo-1625938146369-adc83368bda7?auto=format&fit=crop&w=400&q=80" alt="Atlantic Salmon">
+                <div class="card-info">
+                    <h3>Atlantic Grilled Salmon</h3>
+                    <p>Perfectly pan-seared salmon fillet served with asparagus and lemon-dill cream.</p>
+                    <span class="price">Tk 1,850</span>
+                </div>
+            </div>
+            <div class="menu-card" data-category="continental">
+                <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=400&q=80" alt="Fish and Chips">
+                <div class="card-info">
+                    <h3>Classic Fish & Chips</h3>
+                    <p>Deep-fried crispy beer-battered dory fish served with tartar sauce and fries.</p>
+                    <span class="price">Tk 650</span>
+                </div>
+            </div>
+
+            <!-- --- LOCAL / INDIAN CUISINE --- -->
+            <div class="menu-card" data-category="local">
+                <img src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=400&q=80" alt="Mutton Kacchi">
+                <div class="card-info">
+                    <h3>Mutton Kacchi Biryani</h3>
+                    <p>Basmati rice cooked in slow steam with tender mutton pieces, potatoes, and saffron.</p>
+                    <span class="price">Tk 480</span>
+                </div>
+            </div>
+            <div class="menu-card" data-category="local">
+                <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=400&q=80" alt="Butter Chicken">
+                <div class="card-info">
+                    <h3>Mughlai Butter Chicken</h3>
+                    <p>Boneless tandoori chicken simmered in a rich, velvety tomato and butter gravy.</p>
+                    <span class="price">Tk 550</span>
+                </div>
+            </div>
+            <div class="menu-card" data-category="local">
+                <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=400&q=80" alt="Garlic Naan">
+                <div class="card-info">
+                    <h3>Premium Garlic Naan</h3>
+                    <p>Soft tandoor-baked flatbread brushed with fresh garlic paste and pure ghee.</p>
+                    <span class="price">Tk 90</span>
+                </div>
+            </div>
+            <div class="menu-card" data-category="local">
+                <img src="https://images.unsplash.com/photo-1585938338392-50a5d22ebb18?auto=format&fit=crop&w=400&q=80" alt="Chicken Tikka">
+                <div class="card-info">
+                    <h3>Flame-Grilled Chicken Tikka</h3>
+                    <p>Spicy, yogurt-marinated chicken chunks skewered and char-grilled to perfection.</p>
+                    <span class="price">Tk 420</span>
+                </div>
+            </div>
+            <div class="menu-card" data-category="local">
+                <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=400&q=80" alt="Beef Bhuna">
+                <div class="card-info">
+                    <h3>Traditional Beef Bhuna</h3>
+                    <p>Slow-cooked beef infused with authentic spices, onions, and rich semi-dry gravy.</p>
+                    <span class="price">Tk 490</span>
+                </div>
+            </div>
+
+            <!-- --- DESSERTS & DRINKS --- -->
+            <div class="menu-card" data-category="drinks">
+                <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=400&q=80" alt="Mint Mojito">
+                <div class="card-info">
+                    <h3>Signature Mint Mojito</h3>
+                    <p>Refreshing combination of muddled mint, lime, sugar syrup, and fizzy soda water.</p>
+                    <span class="price">Tk 280</span>
                 </div>
             </div>
             <div class="menu-card" data-category="drinks">
-                <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=400&q=80" alt="Cocktail">
+                <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=400&q=80" alt="Strawberry Shake">
                 <div class="card-info">
-                    <h3>Signature Mojito</h3>
-                    <p>Fresh mint, lime, and top-tier soda balance.</p>
+                    <h3>Gourmet Strawberry Shake</h3>
+                    <p>Thick blended milkshake made with premium vanilla ice cream and fresh strawberries.</p>
                     <span class="price">Tk 350</span>
+                </div>
+            </div>
+            <div class="menu-card" data-category="drinks">
+                <img src="https://images.unsplash.com/photo-1607958996333-41aef7caefaa?auto=format&fit=crop&w=400&q=80" alt="Fudge Brownie">
+                <div class="card-info">
+                    <h3>Sizzling Fudge Brownie</h3>
+                    <p>Warm chocolate brownie served with a scoop of vanilla bean ice cream and hot fudge.</p>
+                    <span class="price">Tk 390</span>
+                </div>
+            </div>
+            <div class="menu-card" data-category="drinks">
+                <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=400&q=80" alt="Mini Donuts">
+                <div class="card-info">
+                    <h3>Glazed Mini Donuts</h3>
+                    <p>Box of 4 soft donuts coated in classic sugar glaze and chocolate sprinkles.</p>
+                    <span class="price">Tk 240</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Reservation Section -->
+    <!-- Glassmorphic Intelligent Reservation Engine -->
     <section id="reservation" class="reservation-section">
         <div class="glass-form-container">
             <h2>Reserve Your Table</h2>
@@ -141,7 +256,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Hot Contact & Emergency Operational Support Matrix -->
     <section id="contact" class="contact-section">
         <div class="contact-container">
             <h2>Contact & Support</h2>
@@ -155,13 +270,13 @@
                 <div class="contact-card">
                     <i class="fas fa-envelope"></i>
                     <h3>Email Us</h3>
-                    <p>samiemtiaz38@gmail.com</p>
+                    <p>info@veesrestaurant.com</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer System Component -->
     <footer>
         <p>&copy; 2026 Vee's Restaurant. All Rights Reserved.</p>
         <p class="credits">Proprietor: <strong>Md. Emtiaz Hossain Sami</strong></p>
