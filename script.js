@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    // 1. Dynamic Intelligent Scroll Tracking System
+    // 1. Existing Dynamic Intelligent Scroll Tracking and Menu Filtering (Updated with new categories)
     const sections = document.querySelectorAll("section");
     const navLinks = document.querySelectorAll(".nav-links a");
 
@@ -21,13 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 2. High-Performance Multi-Cuisine Menu Filtering Engine
     const tabButtons = document.querySelectorAll(".tab-btn");
     const menuCards = document.querySelectorAll(".menu-card");
 
     tabButtons.forEach(button => {
         button.addEventListener("click", () => {
-            // Shift UI Active Indicator state
             tabButtons.forEach(btn => btn.classList.remove("active"));
             button.classList.add("active");
 
@@ -45,12 +43,60 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 3. Automated Glassmorphic Reservation Form System
+    // 2. New Portion and Quantity Calculation Logic Engine blocks for each Menu Item
+    menuCards.forEach(card => {
+        const portionInputs = card.querySelectorAll(".portion-group input[type='radio']");
+        const qtyInput = card.querySelector(".qty-input");
+        const qtyPlus = card.querySelector(".qty-plus");
+        const qtyMinus = card.querySelector(".qty-minus");
+        const totalDisplay = card.querySelector(".total-price");
+
+        // Function to re-calculate and render unique item total nodes
+        const updateItemTotal = () => {
+            let selectedPortion = card.querySelector(".portion-group input[type='radio']:checked");
+            let portionPrice = parseInt(selectedPortion.getAttribute("data-price"));
+            let quantity = parseInt(qtyInput.value);
+            let total = portionPrice * quantity;
+            totalDisplay.innerHTML = `Tk ${total}`;
+        }
+
+        // Portion Change event listener
+        portionInputs.forEach(input => {
+            input.addEventListener("change", updateItemTotal);
+        });
+
+        // Quantity Plus event listener
+        qtyPlus.addEventListener("click", () => {
+            qtyInput.value = parseInt(qtyInput.value) + 1;
+            updateItemTotal();
+        });
+
+        // Quantity Minus event listener
+        qtyMinus.addEventListener("click", () => {
+            if (parseInt(qtyInput.value) > 1) {
+                qtyInput.value = parseInt(qtyInput.value) - 1;
+                updateItemTotal();
+            }
+        });
+
+        // Manual Quantity Input listener with bounds check logic
+        qtyInput.addEventListener("input", () => {
+            if (parseInt(qtyInput.value) < 1 || isNaN(parseInt(qtyInput.value))) {
+                qtyInput.value = 1;
+            }
+            updateItemTotal();
+        });
+
+        // Initial setup execution block for default portion/quantity nodes
+        updateItemTotal();
+    });
+
+    // 3. Existing Automated Glassmorphic Reservation Form System
     const reservationForm = document.getElementById("resForm");
     const formFeedback = document.getElementById("formFeedback");
 
     reservationForm.addEventListener("submit", (e) => {
-        e.preventDefault(); // Intercept real reload path
+        e.preventDefault();
 
         const name = document.getElementById("name").value;
         const date = document.getElementById("date").value;
@@ -58,7 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const guests = document.getElementById("guests").value;
         const seating = document.querySelector('input[name="seating"]:checked').value;
 
-        // Render virtual pipeline response
         formFeedback.classList.remove("hidden");
         formFeedback.innerHTML = `
             <strong>Perfect!</strong> Table reservation request processed for <strong>${name}</strong>.<br>
@@ -66,7 +111,6 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
         formFeedback.classList.add("success");
 
-        // Flash target clear down execution
         reservationForm.reset();
     });
 });
