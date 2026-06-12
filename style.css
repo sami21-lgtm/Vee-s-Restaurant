@@ -1,5 +1,6 @@
+/* Custom App Colors & Core Variables Setup */
 :root {
-    --panda-pink: #e21b70; 
+    --panda-pink: #e21b70; /* Premium Delivery App Primary Signature Accent */
     --dark-matte: #1f1f1f;
     --light-bg: #f7f7f7;
     --border-color: #e8e8e8;
@@ -10,7 +11,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     scroll-behavior: smooth;
 }
 
@@ -20,7 +21,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Header */
+/* Header Navbar Configuration */
 header {
     position: fixed;
     top: 0;
@@ -66,6 +67,7 @@ header {
     color: var(--panda-pink);
 }
 
+/* Header Cart Icon Badge Setup */
 .header-cart-icon {
     position: relative;
     font-size: 20px;
@@ -86,7 +88,7 @@ header {
     border-radius: 5px;
 }
 
-/* Layout */
+/* Core Multi-Column Flex Layout System */
 .main-layout {
     display: flex;
     max-width: 1300px;
@@ -100,10 +102,7 @@ header {
     max-width: calc(100% - 375px);
 }
 
-/* Offers */
-.section-heading-mini h2 { font-size: 20px; color: #111; margin-bottom: 5px; }
-.section-heading-mini p { font-size: 13px; color: #666; margin-bottom: 15px; }
-
+/* Offers Scrolling Layer */
 .offers-section { margin-bottom: 25px; }
 .offers-scroll-wrapper {
     display: flex;
@@ -131,11 +130,10 @@ header {
     border-radius: 4px;
 }
 
-.offer-code { display: block; margin-top: 10px; font-weight: bold; color: #111; font-size: 14px; }
 .offer-card h3 { font-size: 16px; margin: 8px 0 4px; }
-.offer-card p { font-size: 12px; color: #666; }
+.offer-card p { font-size: 13px; color: #666; }
 
-/* Category Tabs */
+/* Foodpanda Horizontal Category Tabs Structure */
 .category-tabs-container {
     position: sticky;
     top: 65px;
@@ -170,7 +168,7 @@ header {
     border-color: var(--panda-pink);
 }
 
-/* Grid Menu */
+/* Food Grid Setup */
 .menu-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -199,50 +197,42 @@ header {
     transition: transform 0.3s;
 }
 
-.menu-card:hover img { transform: scale(1.04); }
+.menu-card:hover img {
+    transform: scale(1.04);
+}
 
 .card-info { padding: 15px; }
 .card-info h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
 .card-info p { font-size: 13px; color: #777; line-height: 1.5; margin-bottom: 15px; height: 38px; overflow: hidden; }
 
-/* 3-Portion Responsive Flexible Switcher */
+/* Portion Switch Selector Engine */
 .portion-group {
     display: flex;
-    gap: 5px;
+    gap: 8px;
     margin-bottom: 15px;
-    flex-wrap: nowrap; 
 }
 
-.portion-label {
-    cursor: pointer;
-    flex: 1;
-    min-width: 0; 
-}
-
+.portion-label { cursor: pointer; flex: 1; }
 .portion-label input { display: none; }
-
 .portion-box {
     display: block;
-    padding: 8px 2px;
+    padding: 8px;
     background: #f8f9fa;
     text-align: center;
     border-radius: 6px;
-    font-size: 11px; 
-    font-weight: 700;
+    font-size: 12px;
+    font-weight: 600;
     border: 1px solid var(--border-color);
     color: #555;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .portion-label input:checked + .portion-box {
-    background: rgba(226, 27, 112, 0.08);
+    background: rgba(226, 27, 112, 0.05);
     color: var(--panda-pink);
     border-color: var(--panda-pink);
 }
 
-/* Buttons */
+/* Add to Cart Core Interaction Actions */
 .btn-add-to-cart {
     width: 100%;
     padding: 11px;
@@ -258,7 +248,7 @@ header {
 
 .btn-add-to-cart:hover { background: #c2135f; }
 
-/* Sidebar Cart */
+/* Foodpanda Style Desktop Sticky Sidebar Cart Grid */
 .cart-sidebar-container {
     width: 350px;
     position: sticky;
@@ -284,11 +274,29 @@ header {
 
 .close-cart-btn { display: none; font-size: 28px; background: none; border: none; cursor: pointer; }
 
-.cart-items-wrapper { flex: 1; overflow-y: auto; margin-bottom: 15px; }
+.cart-items-wrapper {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
 
-.empty-cart-msg { text-align: center; color: #888; font-size: 13px; margin-top: 40px; line-height: 1.6; }
+.empty-cart-msg {
+    text-align: center;
+    color: #888;
+    font-size: 13px;
+    margin-top: 40px;
+    line-height: 1.6;
+}
 
-.cart-item-node { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f5f5f5; }
+/* Individual Cart Row Item Node Layout */
+.cart-item-node {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f5f5f5;
+}
+
 .node-meta h4 { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
 .node-meta span { font-size: 11px; color: #888; }
 
@@ -297,28 +305,46 @@ header {
 .node-qty-val { font-size: 13px; font-weight: 700; }
 .node-price { font-size: 13px; font-weight: 600; min-width: 60px; text-align: right; }
 
+/* Cart Total Cost Panel Box */
 .cart-summary-box { border-top: 1px solid var(--border-color); padding-top: 15px; }
 .summary-row { display: flex; justify-content: space-between; font-size: 13px; color: #666; margin-bottom: 8px; }
 .grand-total { font-size: 16px; font-weight: 800; color: #111; margin-top: 8px; }
 
 .btn-checkout {
-    width: 100%; padding: 14px; background: var(--panda-pink); color: white;
-    border: none; border-radius: 8px; font-size: 14px; font-weight: 700; margin-top: 12px; cursor: pointer;
+    width: 100%;
+    padding: 14px;
+    background: var(--panda-pink);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 12px;
+    cursor: pointer;
 }
 .btn-checkout:disabled { background: #cccccc; cursor: not-allowed; }
 
-/* Reservation */
+/* Venue Booking Form Interface Configuration */
 .reservation-section { margin-top: 40px; background: #fff; border: 1px solid var(--border-color); padding: 25px; border-radius: 12px; }
 .glass-form-container h2 { font-size: 18px; margin-bottom: 15px; }
 .glass-form-container input { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 6px; margin-bottom: 10px; background: var(--light-bg); }
 .btn-submit { background: var(--dark-matte); color: white; border: none; padding: 12px; width: 100%; border-radius: 6px; font-weight: 600; cursor: pointer; }
 
-/* Mobile Floating Cart */
+/* Mobile Floating Cart Bar Indicator Element */
 .mobile-bottom-cart-bar {
-    position: fixed; bottom: 0; left: 0; width: 100%; height: 60px;
-    background: var(--panda-pink); color: white; display: none;
-    justify-content: space-between; align-items: center; padding: 0 20px;
-    z-index: 1001; box-shadow: 0 -2px 10px rgba(0,0,0,0.15);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: var(--panda-pink);
+    color: white;
+    display: none; /* Desktop e Hidden */
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1001;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.15);
 }
 
 .mobile-cart-info { display: flex; align-items: center; gap: 15px; }
@@ -327,26 +353,34 @@ header {
 .mobile-total-price { font-weight: 700; font-size: 15px; }
 .btn-view-cart { background: white; color: var(--panda-pink); border: none; padding: 8px 16px; border-radius: 6px; font-weight: 700; font-size: 13px; cursor: pointer; }
 
+/* Structural Footer Core Layout Nodes */
 footer { text-align: center; color: #888; font-size: 12px; padding: 30px 20px 80px; }
 .hidden { display: none; }
 
-/* Mobile View Rules */
+/* ==========================================================================
+   MOBILE & TABLET ENGINE BREAKPOINTS (Pure Native Responsive Execution)
+   ========================================================================== */
 @media (max-width: 1024px) {
     .content-area { max-width: 100%; }
+    /* Desktop Sidebar hidden code blocks for switching interface states */
     .cart-sidebar-container {
-        display: none; position: fixed; top: 0; right: 0;
-        width: 100% !important; max-width: 380px; height: 100vh;
-        z-index: 2000; border-radius: 0;
+        display: none; 
+        position: fixed;
+        top: 0; right: 0;
+        width: 100% !important; max-width: 380px;
+        height: 100vh;
+        z-index: 2000;
+        border-radius: 0;
     }
     .cart-sidebar-container.open { display: flex; animation: slideIn 0.3s ease-out; }
     .close-cart-btn { display: block; }
-    .mobile-bottom-cart-bar { display: flex; } 
-    .nav-links { display: none; }
+    .mobile-bottom-cart-bar { display: flex; } /* Mobile Floating Element Visible */
+    .nav-links { display: none; } /* Hide classic Nav Links on Phone layout to avoid overflow clutter */
 }
 
 @media (max-width: 480px) {
     .main-layout { padding: 10px; }
-    .menu-grid { grid-template-columns: 1fr; gap: 15px; }
+    .menu-grid { grid-template-columns: 1fr; gap: 15px; } /* Clean Single Column Feed like App UX */
     .cart-sidebar-container { max-width: 100%; }
 }
 
