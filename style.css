@@ -630,3 +630,92 @@ h2 {
     from { bottom: 30px; opacity: 1; }
     to { bottom: 0; opacity: 0; }
 }
+/* ================= Enhanced Reservation Box CSS ================= */
+.reservation-section-wrapper {
+    padding: 60px 8%;
+    background-color: var(--canvas-cream-bg); /* Apnar main background color */
+}
+
+.reservation-box-card {
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--surface-white); /* Apnar shada color */
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Soft premium shadow */
+    border: 1px solid var(--grid-border-color); /* Apnar border color */
+}
+
+.reservation-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.reservation-header h2 {
+    color: var(--dark-charcoal);
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.reservation-header p {
+    color: var(--slate-muted);
+    font-size: 15px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.input-wrapper label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--dark-charcoal);
+    font-size: 14px;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid var(--grid-border-color);
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    background-color: #fafafa;
+    transition: all 0.3s ease;
+}
+
+/* Typing korar shomoy orange color er border hobe */
+.input-wrapper input:focus {
+    outline: none;
+    border-color: var(--brand-orange-accent);
+    background-color: var(--surface-white);
+    box-shadow: 0 0 0 3px rgba(211, 102, 19, 0.15); /* Orange shadow */
+}
+
+/* Button ke ektu boro ar chawra korar jonno */
+.btn-full-width {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+/* Mobile Screen e 1 column hobe */
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    .reservation-box-card {
+        padding: 25px;
+    }
+}
