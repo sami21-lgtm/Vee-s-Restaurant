@@ -519,166 +519,20 @@ h2 {
     margin-top: 10px;
 }
 
-/* Attractive Centered Footer Base Styling Specs */
-.premium-centered-footer {
-    background-color: var(--canvas-cream-bg);
-    padding: 50px 8% 40px;
-    border-top: 1px solid var(--grid-border-color);
-    
-    /* Center anar master-force */
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: center;
-    text-align: center;
-}
-
-.footer-grid-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 60px;
-    flex-wrap: wrap;
-    margin: 0 auto 30px auto;
-    width: 100%;
-    max-width: 900px; /* Ekta nirdishto width dile center e thakte baddho */
-}
-
-.footer-contact-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-width: 250px;
-}
-
-.footer-icon-circle {
-    width: 45px;
-    height: 45px;
-    background-color: var(--dark-charcoal);
-    color: #ffffff;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 18px;
-    margin-bottom: 12px;
-}
-
-.footer-contact-card h4 {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--dark-charcoal);
-    margin-bottom: 6px;
-}
-
-.footer-highlight-text {
-    font-size: 15px;
-    color: var(--slate-muted);
-    font-weight: 500;
-}
-
-.footer-divider-line {
-    width: 100%;
-    max-width: 600px;
-    height: 1px;
-    background-color: var(--grid-border-color);
-    margin: 0 auto 25px auto; /* Perfect center margin */
-}
-
-.footer-copyright-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-}
-
-.copyright-text {
-    font-size: 14px;
-    color: var(--slate-muted);
-}
-
-.proprietor-tag {
-    font-size: 14px;
-    color: var(--slate-muted);
-}
-
-.proprietor-tag span {
-    font-weight: 700;
-    color: var(--dark-charcoal);
-}
-
-/* Mobile Responsive */
-@media (max-width: 600px) {
-    .footer-grid-container {
-        flex-direction: column;
-        gap: 30px;
-    }
-}
-
-.copyright-text {
-    font-size: 14px;
-    color: var(--slate-muted);
-}
-
-.proprietor-tag {
-    font-size: 14px;
-    color: var(--slate-muted);
-}
-
-.proprietor-tag span {
-    font-weight: 700;
-    color: var(--dark-charcoal);
-}
-
-/* Toast Engine Styling Trigger */
-#toast-notification {
-    visibility: hidden;
-    min-width: 280px;
-    background-color: #28a745;
-    color: #fff;
-    text-align: center;
-    border-radius: 8px;
-    padding: 14px;
-    position: fixed;
-    z-index: 5000;
-    left: 50%;
-    bottom: 30px;
-    transform: translateX(-50%);
-    font-size: 14px;
-    font-weight: 600;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-#toast-notification.show-alert {
-    visibility: visible;
-    animation: fadeInTray 0.4s, fadeOutTray 0.4s 2.5s;
-}
-
-@keyframes fadeInTray {
-    from { bottom: 0; opacity: 0; }
-    to { bottom: 30px; opacity: 1; }
-}
-@keyframes fadeOutTray {
-    from { bottom: 30px; opacity: 1; }
-    to { bottom: 0; opacity: 0; }
-}
 /* ================= Enhanced Reservation Box CSS ================= */
 .reservation-section-wrapper {
     padding: 60px 8%;
-    background-color: var(--canvas-cream-bg); /* Apnar main background color */
+    background-color: var(--canvas-cream-bg); 
 }
 
 .reservation-box-card {
     max-width: 700px;
     margin: 0 auto;
-    background: var(--surface-white); /* Apnar shada color */
+    background: var(--surface-white); 
     padding: 40px;
     border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Soft premium shadow */
-    border: 1px solid var(--grid-border-color); /* Apnar border color */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
+    border: 1px solid var(--grid-border-color); 
 }
 
 .reservation-header {
@@ -728,15 +582,13 @@ h2 {
     transition: all 0.3s ease;
 }
 
-/* Typing korar shomoy orange color er border hobe */
 .input-wrapper input:focus {
     outline: none;
     border-color: var(--brand-orange-accent);
     background-color: var(--surface-white);
-    box-shadow: 0 0 0 3px rgba(211, 102, 19, 0.15); /* Orange shadow */
+    box-shadow: 0 0 0 3px rgba(211, 102, 19, 0.15); 
 }
 
-/* Button ke ektu boro ar chawra korar jonno */
 .btn-full-width {
     width: 100%;
     padding: 16px;
@@ -745,7 +597,130 @@ h2 {
     margin-top: 10px;
 }
 
-/* Mobile Screen e 1 column hobe */
+/* ================= Attractive Centered Footer Base Styling Specs ================= */
+.premium-centered-footer {
+    background-color: var(--canvas-cream-bg);
+    padding: 50px 8% 40px;
+    border-top: 1px solid var(--grid-border-color);
+    
+    /* Parent element ke force kore majhkane anar jonno */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+}
+
+.footer-grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto 30px auto; /* Ekdom majhkane lock korar jonno */
+}
+
+.footer-contact-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 250px;
+}
+
+.footer-icon-circle {
+    width: 45px;
+    height: 45px;
+    background-color: var(--dark-charcoal);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.footer-contact-card h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark-charcoal);
+    margin-bottom: 6px;
+}
+
+.footer-highlight-text {
+    font-size: 15px;
+    color: var(--slate-muted);
+    font-weight: 500;
+}
+
+.footer-divider-line {
+    width: 80%;
+    max-width: 600px;
+    height: 1px;
+    background-color: var(--grid-border-color);
+    margin: 0 auto 25px auto; /* Line takeo majhkane lock kora holo */
+}
+
+.footer-copyright-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.copyright-text {
+    font-size: 14px;
+    color: var(--slate-muted);
+}
+
+.proprietor-tag {
+    font-size: 14px;
+    color: var(--slate-muted);
+    margin-top: 5px;
+}
+
+.proprietor-tag span {
+    font-weight: 700;
+    color: var(--dark-charcoal);
+}
+
+/* Toast Engine Styling Trigger */
+#toast-notification {
+    visibility: hidden;
+    min-width: 280px;
+    background-color: #28a745;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 14px;
+    position: fixed;
+    z-index: 5000;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+#toast-notification.show-alert {
+    visibility: visible;
+    animation: fadeInTray 0.4s, fadeOutTray 0.4s 2.5s;
+}
+
+@keyframes fadeInTray {
+    from { bottom: 0; opacity: 0; }
+    to { bottom: 30px; opacity: 1; }
+}
+
+@keyframes fadeOutTray {
+    from { bottom: 30px; opacity: 1; }
+    to { bottom: 0; opacity: 0; }
+}
+
+/* Mobile Screen e Reservation column */
 @media (max-width: 600px) {
     .form-grid {
         grid-template-columns: 1fr;
