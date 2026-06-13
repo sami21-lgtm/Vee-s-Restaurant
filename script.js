@@ -1,39 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    // Global App State Core Database Model Structure Arrays
-    let cart = [];
-    const deliveryCharge = 40;
+    // 1. Existing Dynamic Intelligent Scroll Tracking and Menu Filtering (Updated with new categories)
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-links a");
 
-    // UI Nodes Selector References
-    const menuTabs = document.querySelectorAll(".tab-btn");
+    window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 150) {
+                current = section.getAttribute("id");
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove("active");
+            if (link.getAttribute("href").includes(current)) {
+                link.classList.add("active");
+            }
+        });
+    });
+
+    const tabButtons = document.querySelectorAll(".tab-btn");
     const menuCards = document.querySelectorAll(".menu-card");
-    const cartItemsList = document.getElementById("cartItemsList");
-    const cartSubtotal = document.getElementById("cartSubtotal");
-    const cartDelivery = document.getElementById("cartDelivery");
-    const cartGrandTotal = document.getElementById("cartGrandTotal");
-    const checkoutBtn = document.getElementById("checkoutBtn");
-    
-    // Header & Mobile Elements Badge Selectors
-    const cartCountBadges = document.querySelectorAll(".cart-count-badge, #mobileCartCount");
-    const mobileCartBar = document.getElementById("mobileCartBar");
-    const mobileCartPrice = document.getElementById("mobileCartPrice");
-    const cartSidebar = document.getElementById("cartSidebar");
-    
-    // Drawer Management Interface Triggers
-    const closeCartBtn = document.getElementById("closeCartBtn");
-    const mobileViewCartBtn = document.getElementById("mobileViewCartBtn");
-    const headerCartBtn = document.getElementById("headerCartBtn");
 
-    // 1. Foodpanda style Menu Layout Category Filter Controller Action
-    menuTabs.forEach(tab => {
-        tab.addEventListener("click", () => {
-            menuTabs.forEach(t => t.classList.remove("active"));
-            tab.classList.add("active");
-            
-            const target = tab.getAttribute("data-target");
+    tabButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            tabButtons.forEach(btn => btn.classList.remove("active"));
+            button.classList.add("active");
+
+            const targetCategory = button.getAttribute("data-target");
+
             menuCards.forEach(card => {
-                if (target === "all" || card.getAttribute("data-category") === target) {
+                const cardCategory = card.getAttribute("data-category");
+                if (targetCategory === "all" || cardCategory === targetCategory) {
                     card.style.display = "block";
+                    card.style.animation = "fadeIn 0.4s ease forwards";
                 } else {
                     card.style.display = "none";
                 }
@@ -41,156 +43,74 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 2. Add To Basket Central Logic Controller
-    const addToCartButtons = document.querySelectorAll(".btn-add-to-cart");
-    addToCartButtons.forEach(button => {
-        button.addEventListener("click", (e) => {
-            const card = e.target.closest(".menu-card");
-            const itemId = card.getAttribute("data-id");
-            const itemName = card.getAttribute("data-name");
-            
-            // Get selected portion rules
-            const selectedRadio = card.querySelector("input[type='radio']:checked");
-            const portionSize = selectedRadio.value;
-            const itemPrice = parseInt(selectedRadio.getAttribute("data-price"));
-            
-            // Create a unique compound ID key inside processing block
-            const cartProductUniqueKey = `${itemId}-${portionSize}`;
+    // 2. New Portion and Quantity Calculation Logic Engine blocks for each Menu Item
+    menuCards.forEach(card => {
+        const portionInputs = card.querySelectorAll(".portion-group input[type='radio']");
+        const qtyInput = card.querySelector(".qty-input");
+        const qtyPlus = card.querySelector(".qty-plus");
+        const qtyMinus = card.querySelector(".qty-minus");
+        const totalDisplay = card.querySelector(".total-price");
 
-            // Check if object element exists inside current state array tracking node
-            const existingItem = cart.find(item => item.uniqueKey === cartProductUniqueKey);
-
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({
-                    uniqueKey: cartProductUniqueKey,
-                    id: itemId,
-                    name: itemName,
-                    portion: portionSize,
-                    price: itemPrice,
-                    quantity: 1
-                });
-            }
-
-            renderGlobalCartState();
-            
-            // If on desktop screen, give a little bump effect to button
-            button.innerText = "Added ✓";
-            button.style.background = "#2ecc71";
-            setTimeout(() => {
-                button.innerText = "Add to Cart";
-                button.style.background = "#e21b70";
-            }, 800);
-        });
-    });
-
-    // 3. Render Cart System Interface Block Rules Engine
-    function renderGlobalCartState() {
-        cartItemsList.innerHTML = "";
-        
-        if (cart.length === 0) {
-            cartItemsList.innerHTML = `<div class="empty-cart-msg">Your basket is empty. Add items to start cooking!</div>`;
-            cartSubtotal.innerText = "Tk 0";
-            cartDelivery.innerText = "Tk 0";
-            cartGrandTotal.innerText = "Tk 0";
-            mobileCartPrice.innerText = "Tk 0";
-            checkoutBtn.disabled = true;
-            
-            cartCountBadges.forEach(badge => badge.innerText = "0");
-            return;
+        // Function to re-calculate and render unique item total nodes
+        const updateItemTotal = () => {
+            let selectedPortion = card.querySelector(".portion-group input[type='radio']:checked");
+            let portionPrice = parseInt(selectedPortion.getAttribute("data-price"));
+            let quantity = parseInt(qtyInput.value);
+            let total = portionPrice * quantity;
+            totalDisplay.innerHTML = `Tk ${total}`;
         }
 
-        let subtotal = 0;
-        let totalItemsCount = 0;
-
-        cart.forEach(item => {
-            const itemCost = item.price * item.quantity;
-            subtotal += itemCost;
-            totalItemsCount += itemitem.quantity;
-
-            const nodeRow = document.createElement("div");
-            nodeRow.className = "cart-item-node";
-            nodeRow.innerHTML = `
-                <div class="node-meta">
-                    <h4>${item.name}</h4>
-                    <span>Size: ${item.portion}</span>
-                </div>
-                <div class="node-controls">
-                    <button class="node-qty-btn decrease-qty" data-key="${item.uniqueKey}"><i class="fas fa-minus-circle"></i></button>
-                    <span class="node-qty-val">${item.quantity}</span>
-                    <button class="node-qty-btn increase-qty" data-key="${item.uniqueKey}"><i class="fas fa-plus-circle"></i></button>
-                    <span class="node-price">Tk ${itemCost}</span>
-                </div>
-            `;
-            cartItemsList.appendChild(nodeRow);
+        // Portion Change event listener
+        portionInputs.forEach(input => {
+            input.addEventListener("change", updateItemTotal);
         });
 
-        // Compute pricing grids
-        const finalGrandTotal = subtotal + deliveryCharge;
-
-        cartSubtotal.innerText = `Tk ${subtotal}`;
-        cartDelivery.innerText = `Tk ${deliveryCharge}`;
-        cartGrandTotal.innerText = `Tk ${finalGrandTotal}`;
-        mobileCartPrice.innerText = `Tk ${finalGrandTotal}`;
-        checkoutBtn.disabled = false;
-
-        // Render count indicators across layout matrices
-        cartCountBadges.forEach(badge => badge.innerText = totalItemsCount);
-
-        // Bind interactive event action controls onto items
-        bindCartActionControls();
-    }
-
-    // 4. Quantity Adjusters Within Cart Drawer Nodes
-    function bindCartActionControls() {
-        document.querySelectorAll(".increase-qty").forEach(btn => {
-            btn.addEventListener("click", () => {
-                const key = btn.getAttribute("data-key");
-                const targetItem = cart.find(item => item.uniqueKey === key);
-                if (targetItem) targetItem.quantity += 1;
-                renderGlobalCartState();
-            });
+        // Quantity Plus event listener
+        qtyPlus.addEventListener("click", () => {
+            qtyInput.value = parseInt(qtyInput.value) + 1;
+            updateItemTotal();
         });
 
-        document.querySelectorAll(".decrease-qty").forEach(btn => {
-            btn.addEventListener("click", () => {
-                const key = btn.getAttribute("data-key");
-                const targetItem = cart.find(item => item.uniqueKey === key);
-                if (targetItem) {
-                    targetItem.quantity -= 1;
-                    if (targetItem.quantity === 0) {
-                        cart = cart.filter(item => item.uniqueKey !== key);
-                    }
-                }
-                renderGlobalCartState();
-            });
+        // Quantity Minus event listener
+        qtyMinus.addEventListener("click", () => {
+            if (parseInt(qtyInput.value) > 1) {
+                qtyInput.value = parseInt(qtyInput.value) - 1;
+                updateItemTotal();
+            }
         });
-    }
 
-    // 5. Drawer Toggle Actions (Mobile/Tablet Viewports Handling)
-    if (mobileViewCartBtn) {
-        mobileViewCartBtn.addEventListener("click", () => cartSidebar.classList.add("open"));
-    }
-    if (headerCartBtn) {
-        headerCartBtn.addEventListener("click", () => cartSidebar.classList.add("open"));
-    }
-    if (closeCartBtn) {
-        closeCartBtn.addEventListener("click", () => cartSidebar.classList.remove("open"));
-    }
+        // Manual Quantity Input listener with bounds check logic
+        qtyInput.addEventListener("input", () => {
+            if (parseInt(qtyInput.value) < 1 || isNaN(parseInt(qtyInput.value))) {
+                qtyInput.value = 1;
+            }
+            updateItemTotal();
+        });
 
-    // 6. Reservation Form Action
+        // Initial setup execution block for default portion/quantity nodes
+        updateItemTotal();
+    });
+
+    // 3. Existing Automated Glassmorphic Reservation Form System
     const reservationForm = document.getElementById("resForm");
     const formFeedback = document.getElementById("formFeedback");
 
-    if (reservationForm) {
-        reservationForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const name = document.getElementById("name").value;
-            formFeedback.classList.remove("hidden");
-            formFeedback.className = "form-feedback success";
-            formFeedback.innerHTML = `<strong>Success!</strong> Table hold requested for ${name}.`;
-            reservationForm.reset();
-        });
-    }
+    reservationForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const date = document.getElementById("date").value;
+        const time = document.getElementById("time").value;
+        const guests = document.getElementById("guests").value;
+        const seating = document.querySelector('input[name="seating"]:checked').value;
+
+        formFeedback.classList.remove("hidden");
+        formFeedback.innerHTML = `
+            <strong>Perfect!</strong> Table reservation request processed for <strong>${name}</strong>.<br>
+            Allocated: ${guests} Guest(s) on ${date} at ${time} inside the <strong>${seating} Section</strong>.
+        `;
+        formFeedback.classList.add("success");
+
+        reservationForm.reset();
+    });
 });
