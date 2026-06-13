@@ -71,11 +71,10 @@ header nav a:hover {
 .btn-reserve:hover, .btn-primary:hover {
     background-color: var(--brand-orange-hover);
 }
-/* Hero Viewport Section - ADDED MIN-HEIGHT FOR VISIBILITY */
+/* Hero Viewport Section */
 .hero-viewport {
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1200') no-repeat center center/cover;
-    min-height: 80vh; /* Set a minimum height so your background image is always visible */
-    height: auto; /* Height will adjust if content grows */
+    height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -168,7 +167,7 @@ h2 {
 .normal-chef-border img {
     border-color: #ddd;
 }
-/* Image Upload Styles - HIDDEN NATIVE BUTTON TO MATCH REQUEST */
+/* Custom Image Upload UI Setup */
 .image-upload-overlay {
     position: absolute;
     bottom: 5px;
@@ -181,13 +180,20 @@ h2 {
     color: var(--brand-orange-accent);
     font-size: 16px;
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image-upload-overlay span {
+    display: none; /* Text baad deya hoyese designs unujayi */
 }
 .image-upload-overlay:hover {
     background-color: var(--brand-orange-accent);
     color: var(--surface-white);
 }
+/* FIXED: "Choose file" option purapuri hidden kora hoyese button thik rekhe */
 #owner-upload-input {
-    display: none; /* Entirely hide the default "Choose File" button */
+    display: none !important;
 }
 
 /* Menu Custom Filter Bar */
@@ -395,9 +401,10 @@ h2 {
     font-weight: 800;
     font-size: 17px;
 }
-/* Modals Core Architecture System Frame - ADDED INITIAL HIDDEN STATE */
+/* Modals Core Architecture System Frame */
+/* FIXED: Initial page load e modal auto show bondho korar jonno default "display: none;" kora holo */
 .system-modal-backdrop {
-    display: none; /* Initially hide all modals, including the Table Booking one */
+    display: none; 
     position: fixed;
     z-index: 4000;
     left: 0;
@@ -482,8 +489,6 @@ h2 {
     background-color: var(--canvas-cream-bg);
     padding: 50px 8% 40px;
     border-top: 1px solid var(--grid-border-color);
-    
-    /* Center anar master-force */
     display: flex;
     flex-direction: column;
     align-items: center; 
@@ -498,7 +503,7 @@ h2 {
     flex-wrap: wrap;
     margin: 0 auto 30px auto;
     width: 100%;
-    max-width: 900px; /* Ekta nirdishto width dile center e thakte baddho */
+    max-width: 900px; 
 }
 .footer-contact-card {
     display: flex;
@@ -536,7 +541,7 @@ h2 {
     max-width: 600px;
     height: 1px;
     background-color: var(--grid-border-color);
-    margin: 0 auto 25px auto; /* Perfect center margin */
+    margin: 0 auto 25px auto; 
 }
 .footer-copyright-block {
     display: flex;
@@ -563,18 +568,6 @@ h2 {
         flex-direction: column;
         gap: 30px;
     }
-}
-.copyright-text {
-    font-size: 14px;
-    color: var(--slate-muted);
-}
-.proprietor-tag {
-    font-size: 14px;
-    color: var(--slate-muted);
-}
-.proprietor-tag span {
-    font-weight: 700;
-    color: var(--dark-charcoal);
 }
 /* Toast Engine Styling Trigger */
 #toast-notification {
@@ -609,16 +602,16 @@ h2 {
 /* ================= Enhanced Reservation Box CSS ================= */
 .reservation-section-wrapper {
     padding: 60px 8%;
-    background-color: var(--canvas-cream-bg); /* Apnar main background color */
+    background-color: var(--canvas-cream-bg); 
 }
 .reservation-box-card {
     max-width: 700px;
     margin: 0 auto;
-    background: var(--surface-white); /* Apnar shada color */
+    background: var(--surface-white); 
     padding: 40px;
-    border-radius: 166px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Soft premium shadow */
-    border: 1px solid var(--grid-border-color); /* Apnar border color */
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); 
+    border: 1px solid var(--grid-border-color); 
 }
 .reservation-header {
     text-align: center;
@@ -660,14 +653,12 @@ h2 {
     background-color: #fafafa;
     transition: all 0.3s ease;
 }
-/* Typing korar shomoy orange color er border hobe */
 .input-wrapper input:focus {
     outline: none;
     border-color: var(--brand-orange-accent);
     background-color: var(--surface-white);
-    box-shadow: 0 0 0 3px rgba(211, 102, 19, 0.15); /* Orange shadow */
+    box-shadow: 0 0 0 3px rgba(211, 102, 19, 0.15); 
 }
-/* Button ke ektu boro ar chawra korar jonno */
 .btn-full-width {
     width: 100%;
     padding: 16px;
@@ -675,7 +666,6 @@ h2 {
     border-radius: 8px;
     margin-top: 10px;
 }
-/* Mobile Screen e 1 column hobe */
 @media (max-width: 600px) {
     .form-grid {
         grid-template-columns: 1fr;
