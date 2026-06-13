@@ -448,30 +448,12 @@ h2 {
     text-align: center;
 }
 
-/* Forcing exact clean display on all dynamic text headers inside modal */
 .modal-card-container h2,
 .modal-card-container h3,
-.modal-card-container p,
-.modal-card-container div,
-.modal-card-container span {
+.modal-card-container p {
     text-align: center !important;
-    text-transform: none !important;
-}
-
-/* STRICT OVERRIDE FOR REMOVING ACCIDENTAL CHOOSE FILE CAMERA OPTIONS */
-.modal-card-container input[type="file"],
-.modal-card-container .camera-btn,
-.modal-card-container .change-photo,
-.modal-card-container [class*="camera"],
-.modal-card-container [id*="camera"],
-.modal-card-container [class*="upload"] {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    height: 0 !important;
-    width: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
+    width: 100%;
+    margin: 0 auto 10px auto;
 }
 
 .modal-card-container form {
