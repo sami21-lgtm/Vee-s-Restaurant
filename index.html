@@ -725,34 +725,36 @@
         </div>
     </section>
 
-    <section id="reservation-section" style="padding: 60px 8%; background-color: #fdfdfd; border-top: 1px solid #eee;">
-        <div class="reservation-box-wrapper">
-            <h2 style="color: var(--brand-orange-accent); margin-bottom: 10px; font-size: 28px;">Reserve Your Table</h2>
-            <p style="color: var(--slate-muted); font-size: 14px; margin-bottom: 25px;">Book a table in advance to enjoy a premium dining experience without the wait.</p>
-            
-            <form onsubmit="event.preventDefault(); alert('Your table reservation request has been received successfully! We will contact you soon.'); this.reset();">
-                <div class="reservation-form-grid">
-                    <div>
-                        <label>Full Name</label>
-                        <input type="text" required placeholder="Your Name">
-                    </div>
-                    <div>
-                        <label>Phone Number</label>
-                        <input type="tel" required placeholder="017XXXXXXXX">
-                    </div>
-                    <div>
-                        <label>Date & Time</label>
-                        <input type="datetime-local" required>
-                    </div>
-                    <div>
-                        <label>Number of Guests</label>
-                        <input type="number" min="1" required placeholder="E.g., 4">
-                    </div>
-                </div>
-                <button type="submit" class="btn-primary" style="margin-top: 25px; width: 100%; padding: 14px; font-size: 16px;">Confirm Reservation</button>
-            </form>
+   <section id="reservation-section" class="reservation-section-wrapper">
+    <div class="reservation-box-card">
+        <div class="reservation-header">
+            <h2>Reserve Your Table</h2>
+            <p>Book a table in advance to enjoy a premium dining experience without the wait.</p>
         </div>
-    </section>
+        
+        <form class="reservation-form" onsubmit="event.preventDefault(); alert('Reservation confirmed!'); this.reset();">
+            <div class="form-grid">
+                <div class="input-wrapper">
+                    <label>Full Name</label>
+                    <input type="text" required placeholder="Your Name">
+                </div>
+                <div class="input-wrapper">
+                    <label>Phone Number</label>
+                    <input type="tel" required placeholder="017XXXXXXXX">
+                </div>
+                <div class="input-wrapper">
+                    <label>Date & Time</label>
+                    <input type="datetime-local" required>
+                </div>
+                <div class="input-wrapper">
+                    <label>Number of Guests</label>
+                    <input type="number" min="1" required placeholder="E.g., 4">
+                </div>
+            </div>
+            <button type="submit" class="btn-primary btn-full-width">Confirm Reservation</button>
+        </form>
+    </div>
+</section>
 
     <section id="contact" style="padding: 50px 8%; text-align: center; background-color: #fff;">
         <div class="section-title-block" style="margin-bottom: 30px;">
