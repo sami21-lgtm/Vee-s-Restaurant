@@ -521,39 +521,38 @@ h2 {
 
 /* Attractive Centered Footer Base Styling Specs */
 .premium-centered-footer {
-    background-color: #faf7f2;
+    background-color: var(--canvas-cream-bg);
     padding: 50px 8% 40px;
     border-top: 1px solid var(--grid-border-color);
+    
+    /* Center anar master-force */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
     text-align: center;
 }
 
 .footer-grid-container {
     display: flex;
-    flex-direction: row; /* Poshaposhi rakhar jonno */
-    justify-content: center; /* Horizontally ekdom majhkane anbe */
-    align-items: center; /* Vertically center korbe */
-    gap: 60px; /* Duto item er majhkane shundor gap toiri korbe */
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
     flex-wrap: wrap;
-    margin: 0 auto 30px auto; /* Container takeo majhkane anbe */
+    margin: 0 auto 30px auto;
     width: 100%;
+    max-width: 900px; /* Ekta nirdishto width dile center e thakte baddho */
 }
 
 .footer-contact-card {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Icon ar text ekdom majhkane thakbe */
+    align-items: center;
     justify-content: center;
     text-align: center;
     min-width: 250px;
 }
 
-/* Mobile Screen er jonno jate venge na jay */
-@media (max-width: 600px) {
-    .footer-grid-container {
-        flex-direction: column; /* Mobile e upore niche hobe */
-        gap: 30px;
-    }
-}
 .footer-icon-circle {
     width: 45px;
     height: 45px;
@@ -581,18 +580,42 @@ h2 {
 }
 
 .footer-divider-line {
-    width: 80%;
+    width: 100%;
     max-width: 600px;
     height: 1px;
     background-color: var(--grid-border-color);
-    margin: 0 auto 25px;
+    margin: 0 auto 25px auto; /* Perfect center margin */
 }
 
 .footer-copyright-block {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
+    text-align: center;
+    width: 100%;
+}
+
+.copyright-text {
+    font-size: 14px;
+    color: var(--slate-muted);
+}
+
+.proprietor-tag {
+    font-size: 14px;
+    color: var(--slate-muted);
+}
+
+.proprietor-tag span {
+    font-weight: 700;
+    color: var(--dark-charcoal);
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .footer-grid-container {
+        flex-direction: column;
+        gap: 30px;
+    }
 }
 
 .copyright-text {
